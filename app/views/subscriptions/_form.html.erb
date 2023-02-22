@@ -13,17 +13,17 @@
 
   <div>
     <%= form.label :card_number, style: "display: block" %>
-    <%= form.text_field :card_number %>
+    <%= form.text_field :card_number, :required => true, :minlength => 16, :maxlength => 16, :placeholder => "16-digits" %>
   </div>
 
   <div>
     <%= form.label :card_expiry, style: "display: block" %>
-    <%= form.date_field :card_expiry %>
+    <%= form.date_field :card_expiry, :required => true %>
   </div>
 
   <div>
     <%= form.label :cvc, style: "display: block" %>
-    <%= form.text_field :cvc %>
+    <%= form.text_field :cvc, :required => true, :minlength => 3, :maxlength => 3, :placeholder => "3-digits" %>
   </div>
 
   <div>

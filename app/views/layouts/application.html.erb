@@ -11,18 +11,39 @@
   </head>
 
 <header>
-  <% if user_signed_in? %>
-    <div> Welcome <%= current_user.name %> </div>
-    <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= button_to "Sign in", new_user_session_path %>
-  <% end %>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">iWin</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <% if user_signed_in? %>
+            <li class="nav-item text-light">
+              <%= "#{current_user.name}  " %>
+            </li>
+            <li>
+              "  "
+            </li>
+            <li class="nav-item">
+                <%= button_to "Sign out", destroy_user_session_path, method: :delete, type:"button", class:"btn btn-light btn-sm" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= button_to "Sign in", new_user_session_path, type:"button", class:"btn btn-light btn-sm"  %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
 
 
   <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
   </body>
 </html>

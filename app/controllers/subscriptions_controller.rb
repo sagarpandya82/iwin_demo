@@ -3,12 +3,12 @@ class SubscriptionsController < ApplicationController
 
   # GET /subscriptions or /subscriptions.json
   def index
-    @user = User.find_by(params[:user])
-    @subscription = @user&.subscription
   end
 
   # GET /subscriptions/1 or /subscriptions/1.json
   def show
+    @user = current_user
+    @subscription = @user&.subscription
   end
 
   # GET /subscriptions/new
@@ -22,7 +22,7 @@ class SubscriptionsController < ApplicationController
 
   # POST /subscriptions or /subscriptions.json
   def create
-    @user = User.find_by(params[:user])
+    @user = current_user
     @subscription = Subscription.new(subscription_params)
     @subscription.user = @user
 
@@ -55,7 +55,7 @@ class SubscriptionsController < ApplicationController
     @subscription.destroy
 
     respond_to do |format|
-      format.html { redirect_to subscriptions_url, notice: "Subscription was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Subscription was successfully cancelled." }
       format.json { head :no_content }
     end
   end
@@ -63,7 +63,11 @@ class SubscriptionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subscription
-      @subscription = Subscription.find(params[:id])
+      if params[:id]
+        @subscription = Subscription.find(params[:id])
+      else
+        @subscription = nil
+      end
     end
 
     # Only allow a list of trusted parameters through.

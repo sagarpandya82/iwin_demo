@@ -1,10 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @subscription %>
+<h1>Subscription Status</h1>
 
-<div>
-  <%= link_to "Edit this subscription", edit_subscription_path(@subscription) %> |
-  <%= link_to "Back to subscriptions", subscriptions_path %>
+<% if user_signed_in? %>
+  <% if @subscription %>
+    <p> Subscription is active</p>
+    <%= render @subscription %>
+    <div>
+      <%= link_to "Update this subscription", edit_subscription_path(@subscription) %>
 
-  <%= button_to "Destroy this subscription", @subscription, method: :delete %>
-</div>
+      <%= button_to "Cancel this subscription", @subscription, method: :delete %>
+    </div>
+  <% else %>
+    <p> No active subscription</p>
+    <%= link_to "New subscription", new_subscription_path %>
+  <% end %>
+<% else %>
+  <p> Sign in to see subscriptions</p>
+  <%= link_to "Sign in", new_user_session_path %>
+<% end %>
