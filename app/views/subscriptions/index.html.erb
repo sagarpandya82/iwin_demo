@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Subscription</h1>
+
+<div id="subscriptions">
+  <% if @subscription %>
+    <p> Subscription is active</p>
+    <%#= render @subscription %>
+    <p>
+      <%= link_to "Show this subscription", @subscription %>
+    </p>
+  <% else %>
+    <p> No active subscription</p>
+    <%= link_to "New subscription", new_subscription_path %>
+  <% end %>
+</div>
+
+
