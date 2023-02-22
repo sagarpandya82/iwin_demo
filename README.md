@@ -1,9 +1,5 @@
 # README
 
-A live app running this code is available at:
-
-> https://iwin-demo.herokuapp.com/
-
 * Ruby version 3.2.0
 * Rails version 7.0.4.2
 * Database default SQLite
