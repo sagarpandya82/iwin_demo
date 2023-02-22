@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A live app running this code is available at:
 
-Things you may want to cover:
+> https://iwin-demo.herokuapp.com/
 
-* Ruby version
+* Ruby version 3.2.0
+* Rails version 7.0.4.2
+* Database default SQLite
 
-* System dependencies
 
-* Configuration
+# TO DO
 
-* Database creation
+If I were to spend longer on this application I would do the following:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Styling including adding graphics
+- Add tests
+- Add turbo frames
